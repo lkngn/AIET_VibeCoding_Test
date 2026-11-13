@@ -73,20 +73,57 @@ The first release should focus on the smallest useful experience:
 
 Social feeds, direct messaging, advanced personalization, nutrition analysis, and restaurant integrations can follow after the core recipe workflow is validated.
 
-## Suggested Technology Stack
+## Technology Stack
 
-The stack can change based on implementation preferences, but one possible approach is:
-
-- **Frontend:** Next.js, React, and TypeScript
+- **UI framework:** Next.js with React and TypeScript
 - **Styling:** Tailwind CSS
-- **Backend:** Next.js API routes or Node.js with NestJS
-- **Database:** PostgreSQL
-- **Authentication:** Auth.js, Clerk, or Supabase Auth
-- **File storage:** Amazon S3, Cloudflare R2, or Supabase Storage
-- **Image recognition:** A vision-capable AI model or a dedicated food recognition API
-- **Recipe generation:** An AI service with structured JSON output and safety validation
-- **Maps and restaurants:** Google Maps Platform, Yelp Fusion, or another restaurant data provider
-- **Deployment:** Vercel for the web app and a managed PostgreSQL provider
+- **Backend platform:** Supabase
+  - PostgreSQL database
+  - Supabase Auth for user accounts
+  - Supabase Storage for fridge, recipe, and profile images
+  - Row Level Security for protecting user data
+- **AI features:** A vision-capable AI model for ingredient recognition and structured recipe generation
+- **Restaurant data:** A restaurant and maps provider integrated through the Next.js server layer
+- **Deployment:** Vercel
+- **Version control:** GitHub
+
+## Local Development
+
+### Prerequisites
+
+- Node.js 20 or newer
+- A Supabase project
+- An AI provider API key
+- A restaurant or maps provider API key
+
+### Environment Variables
+
+Create a `.env.local` file using the following variables:
+
+```env
+NEXT_PUBLIC_SUPABASE_URL=your-supabase-project-url
+NEXT_PUBLIC_SUPABASE_ANON_KEY=your-supabase-anon-key
+AI_PROVIDER_API_KEY=your-ai-provider-key
+RESTAURANT_API_KEY=your-restaurant-provider-key
+```
+
+Never commit `.env.local` or any secret API keys to GitHub.
+
+### Run the App
+
+```bash
+npm install
+npm run dev
+```
+
+Open [http://localhost:3000](http://localhost:3000) in your browser.
+
+### Deployment
+
+1. Push the project to GitHub.
+2. Import the repository into Vercel.
+3. Add the environment variables in the Vercel project settings.
+4. Connect the production and preview deployments to the appropriate Supabase project.
 
 ## High-Level Architecture
 
