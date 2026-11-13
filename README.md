@@ -102,7 +102,7 @@ Create a `.env.local` file using the following variables:
 
 ```env
 NEXT_PUBLIC_SUPABASE_URL=your-supabase-project-url
-NEXT_PUBLIC_SUPABASE_ANON_KEY=your-supabase-anon-key
+NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY=your-supabase-publishable-key
 AI_PROVIDER_API_KEY=your-ai-provider-key
 RESTAURANT_API_KEY=your-restaurant-provider-key
 ```
